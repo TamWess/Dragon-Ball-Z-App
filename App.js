@@ -21,7 +21,6 @@ import ProfileScreen from "./screens/ProfileScreen.jsx";
 
 const url = "https://avatarfiles.alphacoders.com/257/thumb-150-257365.jpg";
 
-
 // const Stack = createNativeStackNavigator();
 // console.log("Stack", Stack);
 
@@ -47,18 +46,18 @@ const App = ({ navigation }) => {
 
   useEffect(() => {
     //Appel à la fonction loadFont
-	
+
     loadFont();
     console.log("platform", Platform.OS);
   }, []);
   const fetchBurgers = async () => {
-	try {
-	  const { data } = await axios.get(URLBURGER.fetchBurger);
-	  setBurgers(data);
-	} catch (error) {
-	  console.log(error.message());
-	}
-	console.log(burgers);
+    try {
+      const { data } = await axios.get(URLBURGER.fetchBurger);
+      setBurgers(data);
+    } catch (error) {
+      console.log(error.message());
+    }
+    console.log(burgers);
   };
 
   if (loading) {
@@ -88,6 +87,5 @@ keyExtractor={item => item.id.toString()}
 
 //keyExtractor va nous permettre de récupérér une clé */
 //en REACT et surout en Js chaque élmnt enfant doit avoir une propriété key (clé unique dans le tab)
-
 
 export default App;

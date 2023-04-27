@@ -3,7 +3,6 @@ export default {
 	// width: 100,
     // margin: 100,
     backgroundColor: "white",
-    flexDirection: "Column",
     justifyContent: "center",
     alignItems: "center",
     color: "#fff",
@@ -12,7 +11,7 @@ export default {
   },
   input: {
     marginTop: 20,
-    textIndent: 4,
+    // textIndent: 4,
     borderRadius: 15,
     borderWidth: 1,
     width: 200,
