@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
-import { URLCharacters } from "./utils/urls/urlCharacters";
+// import { URLCharacters } from "./utils/urls/urlCharacters";
 
 import {
   View,
