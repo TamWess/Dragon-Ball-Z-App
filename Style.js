@@ -1,0 +1,46 @@
+export default {
+  container: {
+	// width: 100,
+    // margin: 100,
+    backgroundColor: "white",
+    flexDirection: "Column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  input: {
+    marginTop: 20,
+    textIndent: 4,
+    borderRadius: 15,
+    borderWidth: 1,
+    width: 200,
+    height: 30,
+    color: "#fff",
+  },
+  logo: {
+    marginTop: 20,
+    height: 150,
+    width: 150,
+    borderRadius: 10,
+  },
+  policeDBZ: {
+    fontFamily: "DBZ",
+    color: "#DB0700",
+    fontSize: 70,
+  },
+  Lets: {
+    // boxShadow: "6px 6px 10px black",
+    textAlign: "center",
+    fontFamily: "DBZ",
+    color: "#FFAB00",
+    fontSize: 30,
+  },
+  Bouton: {
+    marginTop: 20,
+    backgroundColor: "Green",
+    displayFlex: "flex",
+    justifyContent: "center",
+  },
+};
