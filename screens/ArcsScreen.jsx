@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Style from "../Style";
 import * as Font from "expo-font";
 
+
 import { View, Text, StyleSheet } from "react-native";
 
 const ProfileScreen = (props) => {

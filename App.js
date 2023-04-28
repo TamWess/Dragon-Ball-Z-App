@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Style from "./Style.js";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Style from "./Style.js";
 
 import HomeScreen from "./screens/HomeScreen.jsx";
 import { URLCharacters } from "./utils/urls/urlCharacters";
@@ -17,7 +17,8 @@ import {
   FlatList,
 } from "react-native";
 import CharactersScreen from "./screens/CharactersScreen.jsx";
-import ProfileScreen from "./screens/ProfileScreen.jsx";
+import ArcsScreen from "./screens/ArcsScreen.jsx";
+import NewsScreen from "./screens/NewsScreen.jsx";
 
 const url = "https://avatarfiles.alphacoders.com/257/thumb-150-257365.jpg";
 
@@ -73,7 +74,8 @@ const App = ({ navigation }) => {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Characters" component={CharactersScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Arcs" component={ArcsScreen} />
+        <Stack.Screen name="News" component={NewsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

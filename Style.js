@@ -1,8 +1,12 @@
 export default {
   container: {
-	// width: 100,
+    height: "100%",
+    width: "100%",
     // margin: 100,
-    backgroundColor: "white",
+    // backgroundColor: "white",
+    backgroundImage: "url(../assets/img/home-background.jpg)",
+    backgroundSize: "cover",
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     color: "#fff",
@@ -11,7 +15,7 @@ export default {
   },
   input: {
     marginTop: 20,
-    // textIndent: 4,
+    textIndent: 4,
     borderRadius: 15,
     borderWidth: 1,
     width: 200,
@@ -29,6 +33,21 @@ export default {
     color: "#DB0700",
     fontSize: 70,
   },
+  titreZ: {
+    textShadow: "20 #ff0000",
+    textShadow: "10 #FFF",
+    marginTop: 10,
+    fontFamily: "DBZ",
+    color: "#DB0700",
+    fontSize: 70,
+  },
+  titreapp: {
+    marginTop: 10,
+    marginBottom: 20,
+    fontFamily: "DBZ",
+    color: "#DB0700",
+    fontSize: 50,
+  },
   Lets: {
     // boxShadow: "6px 6px 10px black",
     textAlign: "center",
@@ -37,9 +56,11 @@ export default {
     fontSize: 30,
   },
   Bouton: {
-    marginTop: 20,
+    width: "40%",
     backgroundColor: "Green",
     displayFlex: "flex",
     justifyContent: "center",
+    marginTop: 20,
+	
   },
 };
