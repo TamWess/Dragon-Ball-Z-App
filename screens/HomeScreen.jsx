@@ -46,6 +46,7 @@ import {
 								<Button 
 								title="News"
 								onPress={() => navigation.navigate("News")}
+								color="#E05E0E"
 								/>
 						</View>
 					</ImageBackground>

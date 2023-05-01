@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?j3182f');
+  src:  url('fonts/icomoon.eot?j3182f#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?j3182f') format('truetype'),
+    url('fonts/icomoon.woff?j3182f') format('woff'),
+    url('fonts/icomoon.svg?j3182f#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-arcs:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-icon-arcs-focus .path1:before {
+  content: "\e901";
+  color: rgb(255, 255, 255);
+}
+.icon-icon-arcs-focus .path2:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-icon-arcs-focus .path3:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(250, 134, 0);
+}
+.icon-icon-arcs-focus .path4:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(250, 134, 0);
+}
+.icon-icon-arcs-focus .path5:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(250, 134, 0);
+}
+.icon-icon-ball:before {
+  content: "\e906";
+  color: #fff;
+}
+.icon-icon-ball-black .path1:before {
+  content: "\e907";
+  color: rgb(255, 255, 255);
+}
+.icon-icon-ball-black .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-icon-ball-focus .path1:before {
+  content: "\e909";
+  color: rgb(250, 134, 0);
+}
+.icon-icon-ball-focus .path2:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-icon-characters:before {
+  content: "\e90b";
+}
+.icon-icon-characters-focus:before {
+  content: "\e90c";
+  color: #fa8600;
+}
+.icon-icon-Z:before {
+  content: "\e90d";
+  color: #fff;
+}
+.icon-icon-Z-focus:before {
+  content: "\e90e";
+  color: #fa8600;
+}

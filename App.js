@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Style from "./Style.js";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import Styles from "./Style.js";
+
+//All the screens import
 
 import HomeScreen from "./screens/HomeScreen.jsx";
 import { URLCharacters } from "./utils/urls/urlCharacters";
@@ -19,8 +23,7 @@ import {
 import CharactersScreen from "./screens/CharactersScreen.jsx";
 import ArcsScreen from "./screens/ArcsScreen.jsx";
 import NewsScreen from "./screens/NewsScreen.jsx";
-
-const url = "https://avatarfiles.alphacoders.com/257/thumb-150-257365.jpg";
+import SonGokuScreen from "./screens/NewsScreen.jsx";
 
 // const Stack = createNativeStackNavigator();
 // console.log("Stack", Stack);
@@ -28,6 +31,8 @@ const url = "https://avatarfiles.alphacoders.com/257/thumb-150-257365.jpg";
 const Stack = createNativeStackNavigator();
 
 const { Navigator, Screen } = createNativeStackNavigator();
+
+const Tab = createBottomTabNavigator();
 
 const App = ({ navigation }) => {
   const [loading, setloading] = useState(true);
@@ -51,15 +56,6 @@ const App = ({ navigation }) => {
     loadFont();
     console.log("platform", Platform.OS);
   }, []);
-  const fetchBurgers = async () => {
-    try {
-      const { data } = await axios.get(URLBURGER.fetchBurger);
-      setBurgers(data);
-    } catch (error) {
-      console.log(error.message());
-    }
-    console.log(burgers);
-  };
 
   if (loading) {
     return (
@@ -71,12 +67,92 @@ const App = ({ navigation }) => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Tab.Navigator
+        tabBarOptions={{
+          showLabel: true,
+          style: {
+            position: "absolute",
+            bottom: 25,
+            left: 20,
+            right: 20,
+            elevation: 0,
+            backgroundColor: "#1C1C1C",
+            borderRadius: 15,
+            height: 90,
+          },
+        }}
+      >
+        {/* screenOptions={{  showLabel: false,
+		headerStyle: {
+		  position: "absolute",
+		  bottom: 25,
+		  left: 20,
+		  right: 20,
+		  elevation: 0,
+		  backgroundColor: "#1C1C1C",
+		  borderRadius: 15,
+		  height: 90, }}
+      
+        }
+      > */}
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 10,
+                }}
+              >
+                <Image
+                  source={require("./assets/icns/icon_ball-.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? "#e32f45" : "#748c94",
+                  }}
+                ></Image>
+                <Text style={{ color: focused ? "#e32f45" : "#748c94" }}></Text>
+              </View>;
+            },
+          }}
+        />
+        <Tab.Screen name="Characters" component={CharactersScreen} />
+        <Tab.Screen name="Arcs" component={ArcsScreen} />
+        <Tab.Screen name="News" component={NewsScreen} />
+        {/* <Stack.Screen name="SonGoku" component={SonGokuScreen} /> */}
+      </Tab.Navigator>
+
+      {/* <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === "Home") {
+              iconName = focused
+                ? "ios-information-circle"
+                : "ios-information-circle-outline";
+            } else if (route.name === "Settings") {
+              iconName = focused ? "ios-list" : "ios-list-outline";
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: "tomato",
+          tabBarInactiveTintColor: "gray",
+        })}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Characters" component={CharactersScreen} />
         <Stack.Screen name="Arcs" component={ArcsScreen} />
         <Stack.Screen name="News" component={NewsScreen} />
-      </Stack.Navigator>
+        {/* <Stack.Screen name="SonGoku" component={SonGokuScreen} /> */}
+      {/* </Tab.Navigator>  */}
     </NavigationContainer>
   );
 };

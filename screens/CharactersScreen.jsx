@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Style from "../Style";
+import Styles from "../Style.js";
 import * as Font from "expo-font";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {
   View,
   Text,
-  StyleSheet,
+  StylesSheet,
   TextInput,
   Image,
   ScrollView,
   FlatList,
+  ImageBackground,
 } from "react-native";
 
 import LOGO from "../assets/04063092495aab3e0f2c5553fee439c9.jpg";
@@ -20,12 +22,14 @@ import LOGOBUU from "../assets/buu.jpg";
 import LOGOSAYANGOKU from "../assets/FrNC0VAJ_400x400.jpg";
 import LOGOSAYANGOHAN from "../assets/artworks-W4BLrzrz6PDRwYSo-R1rSzQ-t500x500.jpg";
 
-const url = "https://avatarfiles.alphacoders.com/257/thumb-150-257365.jpg";
+// import { URLBURGER } from "../../utils/constantes/urls-burger";
 
 const CharactersScreen = () => {
 
 	const [loading, setloading] = useState(true);
 	const [state, setState] = useState("");
+	const [burgers, setBurgers] = useState([]);
+	
 	const loadFont = async () => {
 	  try {
 		await Font.loadAsync({
@@ -37,6 +41,17 @@ const CharactersScreen = () => {
 	  }
 	};
 	useEffect(() => {
+
+		// const fetchBurgers = async () => {
+		// 	try {
+		// 	const { data } = await axios.get(URLBURGER.fetchBurger);
+		// 	setBurgers(data);
+		// 	} catch (error) {
+		// 	console.log(error.message());
+		// 	}
+		// 	console.log(burgers);
+		// };
+
 	  //Appel à la fonction loadFont
 	  loadFont();
 	  console.log("platform", Platform.OS);
@@ -44,25 +59,60 @@ const CharactersScreen = () => {
   
 	return (
 	  //FlatList et ScrollView ne sont pas compatibles
-  <ScrollView>
-		<View style={Style.container}>
-			<Text style={Style.policeDBZ}>Z</Text>
-			<Text style={Style.Lets}>Let's know better your heroes!!!</Text>
-			<TextInput
-			style={Style.input}
-			placeholder="Rechercher..."
-			value={state}
-			onChangeText={(value) => setState(value)}
-			></TextInput>
-			<Image style={Style.logo} source={LOGO}></Image>
-			<Image style={Style.logo} source={{ uri: url }} />
-			<Image style={Style.logo} source={LOGOVEGETA}></Image>
-			<Image style={Style.logo} source={LOGOFREEZER} />
-			<Image style={Style.logo} source={LOGOCELL}></Image>
-			<Image style={Style.logo} source={LOGOBUU} />
-			<Image style={Style.logo} source={LOGOSAYANGOKU}></Image>
-			<Image style={Style.logo} source={LOGOSAYANGOHAN} />
-		</View>
+  <ScrollView >
+		
+			<ImageBackground source={require('../assets/img/characters-background.jpg')} style={Styles.containerCharactersPage}>
+				<Text style={Styles.policeDBZ}>Z</Text>
+				<Text style={Styles.Lets}>Let's know better your heroes!!!</Text>
+				<TextInput
+					style={Styles.input}
+					placeholder="Rechercher..."
+					value={state}
+					onChangeText={(value) => setState(value)}
+					></TextInput>
+				<View style={Styles.containerCharacters}> 
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+					<Image style={Styles.logo} source={LOGOSAYANGOKU}></Image>
+					<Image style={Styles.logo} source={LOGOSAYANGOHAN} />
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+					<Image style={Styles.logo} source={LOGOSAYANGOKU}></Image>
+					<Image style={Styles.logo} source={LOGOSAYANGOHAN} />
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+					<Image style={Styles.logo} source={LOGOSAYANGOKU}></Image>
+					<Image style={Styles.logo} source={LOGOSAYANGOHAN} />
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+					<Image style={Styles.logo} source={LOGOSAYANGOKU}></Image>
+					<Image style={Styles.logo} source={LOGOSAYANGOHAN} />
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+					<Image style={Styles.logo} source={LOGOSAYANGOKU}></Image>
+					<Image style={Styles.logo} source={LOGOSAYANGOHAN} />
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGO}></Image>
+					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
+					<Image style={Styles.logo} source={LOGOFREEZER} />
+					<Image style={Styles.logo} source={LOGOCELL}></Image>
+					<Image style={Styles.logo} source={LOGOBUU} />
+				</View>
+			</ImageBackground>
+		
 	  </ScrollView>
 
 );
@@ -70,7 +120,7 @@ const CharactersScreen = () => {
 
 // Pour pouvoir créer une une seule partie scrollable
 /* <FlatList data={posts} 
-renderItem={(item) => <Text style={Style.item}>{item.item.title}</Text>}
+renderItem={(item) => <Text style={Styles.item}>{item.item.title}</Text>}
 keyExtractor={item => item.id.toString()} 
 />
 
