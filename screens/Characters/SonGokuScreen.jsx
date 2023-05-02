@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Style from "../Style.js";
-
-import CharactersScreen from "./CharactersScreen";
-import ProfileScreen from "./ArcsScreen.jsx";
+import Style from "../../Style";
 
 import {
 	View,
@@ -24,7 +21,7 @@ import {
 	return(
 		<>
 			<View style={Style.container}>
-				<ImageBackground source={require('../assets/img/home-background.jpg')} style={Style.container}>
+				<ImageBackground source={require('../../assets/img/home-background.jpg')} style={Style.container}>
 					<Text style={Style.titreZ}>Z app</Text>
 					<View style={Style.Bouton}>
 							<Button 

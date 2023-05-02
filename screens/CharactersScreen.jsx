@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import Styles from "../Style.js";
 import * as Font from "expo-font";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import axios from "axios";
+// import "./san-cho-burgers.scss";
+
+import { URLCharactersAvatars } from "../utils/urls/urlCharacters.js";
+
+import SonGokuScreen from './Characters/SonGokuScreen.jsx'
 
 import {
   View,
@@ -22,13 +28,11 @@ import LOGOBUU from "../assets/buu.jpg";
 import LOGOSAYANGOKU from "../assets/FrNC0VAJ_400x400.jpg";
 import LOGOSAYANGOHAN from "../assets/artworks-W4BLrzrz6PDRwYSo-R1rSzQ-t500x500.jpg";
 
-// import { URLBURGER } from "../../utils/constantes/urls-burger";
-
 const CharactersScreen = () => {
 
 	const [loading, setloading] = useState(true);
 	const [state, setState] = useState("");
-	const [burgers, setBurgers] = useState([]);
+	const [charactersAvatars, setCharactersAvatars] = useState([]);
 	
 	const loadFont = async () => {
 	  try {
@@ -42,15 +46,15 @@ const CharactersScreen = () => {
 	};
 	useEffect(() => {
 
-		// const fetchBurgers = async () => {
-		// 	try {
-		// 	const { data } = await axios.get(URLBURGER.fetchBurger);
-		// 	setBurgers(data);
-		// 	} catch (error) {
-		// 	console.log(error.message());
-		// 	}
-		// 	console.log(burgers);
-		// };
+		const fetchCharactersAvatarsFunction = async () => {
+			try {
+			const { data } = await axios.get(URLCharactersAvatars.fetchCharactersAvatars);
+			setBurgers(data);
+			} catch (error) {
+			console.log(error.message());
+			}
+			console.log(charactersAvatars);
+		};
 
 	  //Appel à la fonction loadFont
 	  loadFont();
@@ -58,9 +62,10 @@ const CharactersScreen = () => {
 	}, []);
   
 	return (
+
 	  //FlatList et ScrollView ne sont pas compatibles
+
   <ScrollView >
-		
 			<ImageBackground source={require('../assets/img/characters-background.jpg')} style={Styles.containerCharactersPage}>
 				<Text style={Styles.policeDBZ}>Z</Text>
 				<Text style={Styles.Lets}>Let's know better your heroes!!!</Text>
@@ -71,6 +76,21 @@ const CharactersScreen = () => {
 					onChangeText={(value) => setState(value)}
 					></TextInput>
 				<View style={Styles.containerCharacters}> 
+
+				{/* Tentative fetch Characters Avatars  */}
+					{charactersAvatars.map((item) => (
+						<React.Fragment key={item._id}>
+							<View >
+								
+								<Image style={Styles.logo} source={item.img}></Image>
+								
+							</View>
+						</React.Fragment>
+					))}
+
+{/* -------------------------------------------------------------------------------------------------- */}
+
+	
 					<Image style={Styles.logo} source={LOGO}></Image>
 					<Image style={Styles.logo} source={LOGOVEGETA}></Image>
 					<Image style={Styles.logo} source={LOGOFREEZER} />

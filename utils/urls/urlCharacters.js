@@ -1,3 +1,3 @@
-export const URLCharacters = {
-  fecthCharacters: "http://localhost:8080/api/burger/get",
+export const URLCharactersAvatars = {
+  fetchCharactersAvatars: "http://localhost:8080/api/CharactersAvatars/get",
 };
