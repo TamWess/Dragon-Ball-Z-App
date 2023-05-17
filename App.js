@@ -75,7 +75,7 @@ const App = ({ navigation }) => {
         screenOptions={({ route }) => ({
           headerShown: false,
           tabBarStyle: {
-            height: 60,
+            height: 70,
             paddingHorizontal: 5,
             paddingTop: 0,
             backgroundColor: "rgba(34,36,40,1)",
@@ -86,9 +86,22 @@ const App = ({ navigation }) => {
             let iconName;
 
             if (route.name === "Home") {
-              iconName = focused
-                ? "icon-z"
-                : "icon-z-focus";
+              iconName = focused ? "icon-ball" : "icon-ball-focus";
+            } else if (route.name === "Settings") {
+              iconName = focused ? "ios-list" : "ios-list-outline";
+            }
+            if (route.name === "Characters") {
+              iconName = focused ? "icon-characters" : "icon-characters";
+            } else if (route.name === "Settings") {
+              iconName = focused ? "ios-list" : "ios-list-outline";
+            }
+            if (route.name === "Arcs") {
+              iconName = focused ? "icon-arcs" : "icon-arcs";
+            } else if (route.name === "Settings") {
+              iconName = focused ? "ios-list" : "ios-list-outline";
+            }
+            if (route.name === "News") {
+              iconName = focused ? "icon-z" : "icon-z";
             } else if (route.name === "Settings") {
               iconName = focused ? "ios-list" : "ios-list-outline";
             }
@@ -96,37 +109,12 @@ const App = ({ navigation }) => {
             // You can return any component that you like here!
             return <Icon name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "black",
-          tabBarInactiveTintColor: "white",
+          tabBarActiveTintColor: "red",
+          tabBarInactiveTintColor: "grey",
           tabBarActiveBackgroundColor: "orange",
         })}
       >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ focused }) => {
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  top: 10,
-                }}
-              >
-                <Image
-                  source={require("./assets/icns/icon_ball-.png")}
-                  resizeMode="contain"
-                  style={{
-                    width: 25,
-                    height: 25,
-                    tintColor: focused ? "#e32f45" : "#748c94",
-                  }}
-                ></Image>
-                <Text style={{ color: focused ? "#e32f45" : "#748c94" }}></Text>
-              </View>;
-            },
-          }}
-        />
+        <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Characters" component={CharactersScreen} />
         <Tab.Screen name="Arcs" component={ArcsScreen} />
         <Tab.Screen name="News" component={NewsScreen} />

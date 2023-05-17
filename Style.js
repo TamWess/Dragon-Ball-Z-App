@@ -34,7 +34,7 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
   },
   containerCharacters: {
-    
+    marginBottom: 60,
     width: "70%",
     backgroundImage: "url(../assets/img/home-background.jpg)",
     backgroundSize: "cover",
@@ -51,7 +51,7 @@ const Styles = StyleSheet.create({
   input: {
     marginTop: 20,
 	marginBottom: 20,
-    textIndent: 4,
+    // textIndent: 4,
     borderRadius: 15,
     borderWidth: 1,
     width: 200,
@@ -65,6 +65,7 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
   },
   policeDBZ: {
+	marginTop: 50,
     fontFamily: "DBZ",
     color: "#DB0700",
     fontSize: 70,
